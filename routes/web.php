@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//定义路由
+Route::get('/','IndexController@index')->name('index');
