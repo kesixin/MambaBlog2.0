@@ -9,6 +9,7 @@ require('./bootstrap');
 
 import Vue from 'vue'
 import Home from './Home.vue'
+import {router}from './router/app/index'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -16,9 +17,10 @@ import Home from './Home.vue'
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+
 
 const app = new Vue({
     el: '#app',
+    router:router,
     render: h=>h(Home),
 });
