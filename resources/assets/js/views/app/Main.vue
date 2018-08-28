@@ -1,11 +1,16 @@
 <template>
-    <v-app>
-        <navbar></navbar>
-        <router-view></router-view>
-    </v-app>
+    <div>cess</div>
 </template>
 
 <script>
-    import Navbar from '@/components/Navbar';
-
 </script>
+
+<style scoped>
+    .top{
+        padding: 10px;
+        background: rgba(0, 153, 229, .7);
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+    }
+</style>

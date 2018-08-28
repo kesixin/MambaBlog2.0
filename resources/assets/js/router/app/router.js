@@ -1,11 +1,13 @@
-import Main from '@/views/app/Main.vue';
+import Main from '../../views/app/Main.vue';
+
 
 export const otherRouter = {
-    path:'/',
-    component:Main,
+    path: '/',
+    component: Main,
+};
 
-}
 
-export const routers =[
+
+export const routers = [
     otherRouter,
 ];

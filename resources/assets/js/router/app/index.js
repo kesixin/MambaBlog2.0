@@ -11,3 +11,4 @@ const RouterConfig = {
 
 export const router = new VueRouter(RouterConfig);
 
+
