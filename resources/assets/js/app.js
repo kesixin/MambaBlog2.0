@@ -7,10 +7,14 @@
 
 require('./bootstrap');
 
+import Vuetify from 'vuetify'
+import iview from 'iview'
 import Vue from 'vue'
 import Home from './Home.vue'
 import {router}from './router/app/index'
 
+Vue.use(Vuetify);
+Vue.use(iview);
 
 
 const app = new Vue({

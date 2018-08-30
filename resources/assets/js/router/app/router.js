@@ -1,4 +1,4 @@
-import Main from '../../views/app/Main.vue';
+import Main from '@/views/app/Main.vue';
 
 
 export const otherRouter = {
