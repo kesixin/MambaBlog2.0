@@ -14,9 +14,11 @@
     <link rel="stylesheet" href="/css/all.css">
 </head>
 <body>
-<div id="app"></div>
+<div id="app">
 
-<script src="/js/app.js"></script>
+</div>
+
+<script src="{{ mix('js/app.js') }}"></script>
 <script>
     window.Laravel =<?php echo json_encode(['csrfToken' => csrf_token()]); ?>
 </script>
