@@ -7,18 +7,29 @@
 
 require('./bootstrap');
 
+import Vue from 'vue'
 import Vuetify from 'vuetify'
 import iview from 'iview'
-import Vue from 'vue'
+import store from './store/app'
 import Home from './Home.vue'
+import hljs from 'highlight.js'
 import {router}from './router/app/index'
+import Share from 'vue-social-share'
+
+Vue.directive('highlight',function (el) {
+    let blocks = el.querySelectorAll('pre code');
+    blocks.forEach((block)=>{
+        hljs.highlightBlock(block)
+    })
+})
 
 Vue.use(Vuetify);
 Vue.use(iview);
-
+Vue.use(Share)
 
 const app = new Vue({
     el: '#app',
+    store:store,
     router:router,
     render:h=>h(Home)
 });
