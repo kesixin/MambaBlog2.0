@@ -12,6 +12,7 @@ import Vuetify from 'vuetify'
 import iview from 'iview'
 import store from './store/app'
 import Home from './Home.vue'
+import HttpPlugin from './libs/app_http'
 import hljs from 'highlight.js'
 import {router}from './router/app/index'
 import Share from 'vue-social-share'
@@ -25,7 +26,8 @@ Vue.directive('highlight',function (el) {
 
 Vue.use(Vuetify);
 Vue.use(iview);
-Vue.use(Share)
+Vue.use(Share);
+Vue.use(HttpPlugin);
 
 const app = new Vue({
     el: '#app',
