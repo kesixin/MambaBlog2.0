@@ -9,6 +9,7 @@ class Article extends Model
 {
     protected $table = 'articles';
 
+    protected $dates = ['published_at'];
     /**
      * @var array
      */

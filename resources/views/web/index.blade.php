@@ -11,7 +11,7 @@
     <title>Mamba Blog</title>
 
     <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
 </head>
 <body>
 <div id="app">

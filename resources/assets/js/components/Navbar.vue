@@ -5,6 +5,44 @@
                 <img src="/images/logo.png" class="avatar">
             </router-link>
 
+            <div class="uk-navbar-flip uk-hidden-small" v-if="is_login">
+                <div class="uk-navbar-content">
+                    <Dropdown>
+                        <a href="javascript:void(0)">
+                            <img :src="avatar" class="avatar img-circle" style="width: 40px;height: 40px;background: #fff;padding: 3px;border: 1px solid #c5c5c5;">
+                            {{ name }}
+                            <Icon type="arrow-down-b"></Icon>
+                            <b class="caret"></b>&nbsp;&nbsp;
+                        </a>
+                        <DropdownMenu slot="list">
+                            <router-link :to="'/users/' + name">
+                                <DropdownItem>
+                                    <Icon type="person"></Icon>&nbsp;&nbsp;<span>个人中心</span>
+                                </DropdownItem>
+                            </router-link>
+                            <router-link :to="'/users/' + name + '/edit'">
+                                <DropdownItem>
+                                    <Icon type="gear-a"></Icon>&nbsp;&nbsp;<span>个人设置</span>
+                                </DropdownItem>
+                            </router-link>
+                            <DropdownItem disabled>
+                                <Icon type="university"></Icon>&nbsp;&nbsp;<span>我的小说</span>
+                            </DropdownItem>
+                            <!--<DropdownItem v-if="is_admin">-->
+                                <!--<div @click="jumpDashboard">-->
+                                    <!--<Icon type="university"></Icon>&nbsp;&nbsp;<span>控制面板</span>-->
+                                <!--</div>-->
+                            <!--</DropdownItem>-->
+                            <DropdownItem>
+                                <div @click="loginOut">
+                                    <Icon type="log-out"></Icon>&nbsp;&nbsp;<span>退出登录</span>
+                                </div>
+                            </DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+                </div>
+            </div>
+
             <div class="uk-navbar-flip uk-hidden-small">
                 <div class="uk-navbar-content">
                     <router-link to="/login">
@@ -23,7 +61,32 @@
 
 <script>
     export default{
-
+        data(){
+            return {
+                count: 0
+            }
+        },
+        computed:{
+            is_login(){
+                return this.$store.state.user.token ? true:false
+            },
+            name(){
+                if(this.is_login){
+                    return this.$store.state.user.userinfo.name;
+                }
+            },
+            avatar(){
+                if(this.is_login){
+                    console.log(this.$store.state.user.userinfo.name + "222");
+                    return this.$store.state.user.userinfo;
+                }
+            },
+            is_admin() {
+                if (this.is_login) {
+                    return this.$store.state.user.userinfo.is_admin;
+                }
+            }
+        }
     }
 </script>
 

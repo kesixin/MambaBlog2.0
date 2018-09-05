@@ -14,7 +14,7 @@ class ArticleResource extends Resource
             'id'                => $this->id,
             'category_id'       => $this->category_id,
             //'category'          => new CategoryResource($this->whenLoaded('category')),
-            //'user'              => new UserResource($this->whenLoaded('user')),
+            'user'              => new UserResource($this->whenLoaded('user')),
             //'tags'              => TagResource::collection($this->whenLoaded('tags')),
             'comments_count'    => $this->comments_count,
             'slug'              => $this->slug,
@@ -29,10 +29,10 @@ class ArticleResource extends Resource
             'is_draft'          => $this->is_draft,
             'visitors'          => $this->view_count,
             'comments_count'    => $this->comments_count,
-            //'published_at'      => $this->published_at->toDateTimeString(),
-            //'published_time'    => $this->published_at->toDayDateTimeString(),
-            //'published_individualization' => $this->published_at->diffForHumans(),
-            //'created_at'        => $this->created_at->toDateString(),
+            'published_at'      => $this->published_at->toDateTimeString(),
+            'published_time'    => $this->published_at->toDayDateTimeString(),
+            'published_individualization' => $this->published_at->diffForHumans(),
+            'created_at'        => $this->created_at->toDateString(),
         ];
     }
 

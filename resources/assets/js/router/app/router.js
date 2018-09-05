@@ -26,27 +26,22 @@ export const otherRouter = {
             component:AuthCommon,
             children:[
                 {
-                    path: '/',
-                    component: AuthCommon,
-                    children: [
-                        {
-                            path: '/login',
-                            name: 'login',
-                            component: resolve => void(require(['@/views/app/auth/login.vue'], resolve)),
-                            meta: {
-                                requiresNotAuth: true,
-                                title: '用户登录 | cocoyo'
-                            }
-                        },
-                        {
-                            path:'/register',
-                            meta:{
-                                title:'用户注册'
-                            },
-                            name:'register_tip',
-                            component:resolve =>void(require(['@/views/app/auth/register.vue'],resolve)),
-                        }
-                    ]
+                    path: '/login',
+                    name: 'login',
+                    component: resolve => void(require(['@/views/app/auth/login.vue'], resolve)),
+                    meta: {
+                        requiresNotAuth: true,
+                        title: '用户登录 | cocoyo'
+                    }
+                },
+                {
+                    path: '/register',
+                    meta: {
+                        requiresNotAuth: true,
+                        title: '用户注册 | cocoyo'
+                    },
+                    name: 'register',
+                    component: resolve => void(require(['@/views/app/auth/register.vue'], resolve)),
                 },
             ]
         }
@@ -61,3 +56,5 @@ export const routers = [
     otherRouter,
     ...appRouter,
 ];
+
+

@@ -67,6 +67,14 @@ app_mix.js('resources/assets/js/app.js', 'public/js')
                         breaks: true,
                         preventExtract: true
                     }
+                },
+                {
+                    test: /\.less$/,
+                    use: [
+                        'style-loader',
+                        { loader: 'css-loader', options: { importLoaders: 1 } },
+                        'less-loader'
+                    ]
                 }
             ]
         }
