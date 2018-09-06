@@ -21,4 +21,6 @@ Route::group(["namespace" => "Api"],function (){
 Route::group(['namespace' =>'Auth'],function (){
     //用户登录
     Route::post('login','LoginController@login')->name('login');
+    //退出登录
+    Route::post('logout','LoginController@logout')->name('logout')->middleware('auth:api');
 });

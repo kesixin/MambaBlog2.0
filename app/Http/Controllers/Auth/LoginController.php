@@ -26,6 +26,11 @@ class LoginController extends Controller
 
     use AuthenticatesUsers,ProxyHelpers;
 
+    /**
+     * 用户登录
+     * @param Request $request
+     * @return mixed
+     */
     public function login(Request $request)
     {
         $this->validateLogin($request);
@@ -37,9 +42,9 @@ class LoginController extends Controller
             return $this->respond(['code'=>0]);
         }
 
-        $token = $this->authenticate();
+        $tokens = $this->authenticate();
 
-        return $this->respond(['data'=>['token'=>$token,'user'=>new UserResource($user)]]);
+        return $this->respond(['data'=>['token'=>$tokens,'user'=>new UserResource($user)]]);
     }
 
     /**
@@ -52,6 +57,18 @@ class LoginController extends Controller
             $this->username() => 'required|string|exists:users,'.$this->username(),
             'password'=>'required|string',
         ]);
+    }
+
+    /**
+     * 退出登录
+     * @param Request $request
+     * @return \Response
+     */
+    public function logout(Request $request)
+    {
+        $request->user()->token()->revoke();
+
+        return $this->noContent();
     }
 
 

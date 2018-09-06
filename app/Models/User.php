@@ -2,13 +2,17 @@
 
 namespace App\Models;
 
+use App\Traits\UserNotificationHelper;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
+use Overtrue\LaravelFollow\Traits\CanBeFollowed;
+use Overtrue\LaravelFollow\Traits\CanFollow;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens, Notifiable, CanFollow, CanBeFollowed;
 
     /**
      * The attributes that are mass assignable.
@@ -30,4 +34,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * @param Builder $query
+     * @return $this
+     */
+    public function scopeValid(Builder $query)
+    {
+        return $query->where('status', 1);
+    }
+
+    /**
+     * 重写passport查询用户
+     *
+     * @param $email
+     * @return mixed
+     */
+    public function findForPassport($email)
+    {
+        return User::where('email', $email)->first();
+    }
 }

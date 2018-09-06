@@ -43,7 +43,7 @@
                 </div>
             </div>
 
-            <div class="uk-navbar-flip uk-hidden-small">
+            <div class="uk-navbar-flip uk-hidden-small" v-else>
                 <div class="uk-navbar-content">
                     <router-link to="/login">
                         <v-btn class="white--text" color="indigo">登录</v-btn>
@@ -77,14 +77,29 @@
             },
             avatar(){
                 if(this.is_login){
-                    console.log(this.$store.state.user.userinfo.name + "222");
-                    return this.$store.state.user.userinfo;
+                    return this.$store.state.user.userinfo.avatar;
                 }
             },
             is_admin() {
                 if (this.is_login) {
                     return this.$store.state.user.userinfo.is_admin;
                 }
+            }
+        },
+        methods:{
+            loginOut(){
+                this.$Modal.confirm({
+                    title:'退出登录?',
+                    content:'客官何不留下再看看!',
+                    okText:'确定',
+                    cancelText:'取消',
+                    onOk:()=>{
+                        this.$http.post('logout').then((response)=>{
+                            this.$store.commit('logout',this);
+                            this.$router.push('/');
+                        })
+                    }
+                })
             }
         }
     }

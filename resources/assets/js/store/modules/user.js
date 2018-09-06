@@ -17,7 +17,14 @@ const user = {
         SET_USERINFO:(state,userinfo)=>{
             state.userinfo = userinfo;
             setUser(userinfo);
+        },
+        logout(state,vm){
+            state.token='';
+            state.userinfo='';
+            removeToken();
+            removeUser();
         }
+
     }
 };
 

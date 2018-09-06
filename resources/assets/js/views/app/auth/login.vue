@@ -62,13 +62,15 @@
         methods: {
             submit () {
                 if (this.$refs.form.validate()) {
-                    this.$http.post('login', this.form).then((response) => {
+                    this.$http.post('login', this.form).then((result) => {
+                        let response = result.data;
                         if (typeof(response.code) != 'undefined' && response.code == 0) {
                             this.$router.push({
                                 path: '/register_success',
                                 query: {email: this.form.email}
                             })
                         }
+                        console.log(response);
                         this.$store.commit('SET_USERINFO', response.data.user);
                         this.$store.commit('SET_TOKEN', response.data.token);
                         this.$store.commit('getNotificationCount');
