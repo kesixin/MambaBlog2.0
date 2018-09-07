@@ -23,4 +23,8 @@ Route::group(['namespace' =>'Auth'],function (){
     Route::post('login','LoginController@login')->name('login');
     //退出登录
     Route::post('logout','LoginController@logout')->name('logout')->middleware('auth:api');
+    //用户注册
+    Route::post('register','RegisterController@register')->name('register');
+    //确认邮箱
+    Route::put('register/confirmed', 'RegisterController@confirmed')->name('register.confirmed');
 });

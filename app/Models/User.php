@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Traits\UserNotificationHelper;
-use Illuminate\Database\Eloquent\Builder;
+
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
@@ -39,10 +39,10 @@ class User extends Authenticatable
      * @param Builder $query
      * @return $this
      */
-    public function scopeValid(Builder $query)
-    {
-        return $query->where('status', 1);
-    }
+//    public function scopeValid(Builder $query)
+//    {
+//        return $query->where('status', 1);
+//    }
 
     /**
      * 重写passport查询用户

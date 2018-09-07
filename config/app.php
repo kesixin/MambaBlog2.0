@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Shanghai',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,8 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'zh-CN',
+    'faker_locale' => 'zh',
 
     /*
     |--------------------------------------------------------------------------
@@ -165,6 +166,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         Overtrue\LaravelFollow\FollowServiceProvider::class,
+        Naux\Mail\SendCloudServiceProvider::class,
 
         Laravel\Passport\PassportServiceProvider::class,
 

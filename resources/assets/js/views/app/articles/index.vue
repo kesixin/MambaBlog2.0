@@ -46,7 +46,7 @@
             loadData(){
                 var url = "articles";
                 this.$http.get(url).then((response) => {
-                    this.articles = response.data.data;
+                    this.articles = response.data;
                     console.log(this.articles);
                 })
             }

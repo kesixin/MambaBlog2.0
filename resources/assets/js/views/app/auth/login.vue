@@ -62,8 +62,7 @@
         methods: {
             submit () {
                 if (this.$refs.form.validate()) {
-                    this.$http.post('login', this.form).then((result) => {
-                        let response = result.data;
+                    this.$http.post('login', this.form).then((response) => {
                         if (typeof(response.code) != 'undefined' && response.code == 0) {
                             this.$router.push({
                                 path: '/register_success',
