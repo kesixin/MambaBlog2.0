@@ -28,11 +28,11 @@
                             <DropdownItem disabled>
                                 <Icon type="university"></Icon>&nbsp;&nbsp;<span>我的小说</span>
                             </DropdownItem>
-                            <!--<DropdownItem v-if="is_admin">-->
-                                <!--<div @click="jumpDashboard">-->
-                                    <!--<Icon type="university"></Icon>&nbsp;&nbsp;<span>控制面板</span>-->
-                                <!--</div>-->
-                            <!--</DropdownItem>-->
+                            <DropdownItem v-if="is_admin">
+                                <div @click="jumpDashboard">
+                                    <Icon type="university"></Icon>&nbsp;&nbsp;<span>控制面板</span>
+                                </div>
+                            </DropdownItem>
                             <DropdownItem>
                                 <div @click="loginOut">
                                     <Icon type="log-out"></Icon>&nbsp;&nbsp;<span>退出登录</span>
@@ -87,6 +87,9 @@
             }
         },
         methods:{
+            jumpDashboard(){
+                window.location.href="/dashboard"
+            },
             loginOut(){
                 this.$Modal.confirm({
                     title:'退出登录?',

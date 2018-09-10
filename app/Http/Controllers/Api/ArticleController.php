@@ -10,7 +10,10 @@ use App\Http\Controllers\Controller;
 class ArticleController extends Controller
 {
 
-
+    /**
+     * 文章列表
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
     public function index()
     {
         $articles = Article::latest()->valid()->paginate(6);
@@ -19,5 +22,19 @@ class ArticleController extends Controller
 
         return ArticleResource::collection($articles);
 
+    }
+
+
+    /**
+     * 文章详情
+     * @param $slug
+     * @return ArticleResource
+     */
+    public function show($slug)
+    {
+        $article = Article::where('slug',$slug)->first();
+        $article->load(['user']);
+
+        return new ArticleResource($article);
     }
 }

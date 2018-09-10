@@ -29,6 +29,8 @@ Vue.use(iview);
 Vue.use(Share);
 Vue.use(HttpPlugin);
 
+Vue.component('comment_post',require('./components/comments/Comment_Post.vue'));
+
 const app = new Vue({
     el: '#app',
     store:store,

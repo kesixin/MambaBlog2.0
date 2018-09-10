@@ -13,3 +13,5 @@
 
 //定义路由
 Route::get('/','IndexController@index')->name('index');
+
+Route::get('dashboard','Admin\DashboardController@index')->name('dashboard');

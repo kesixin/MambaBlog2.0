@@ -14,8 +14,10 @@ use Illuminate\Http\Request;
 */
 
 Route::group(["namespace" => "Api"],function (){
-   //文章列表
+    //文章列表
     Route::get('articles','ArticleController@index')->name('articles.index');
+    //文章详情
+    Route::get('articles/{slug}','ArticleController@show')->name('articles.show');
 });
 
 Route::group(['namespace' =>'Auth'],function (){
@@ -27,4 +29,9 @@ Route::group(['namespace' =>'Auth'],function (){
     Route::post('register','RegisterController@register')->name('register');
     //确认邮箱
     Route::put('register/confirmed', 'RegisterController@confirmed')->name('register.confirmed');
+
+});
+
+Route::group(['namespace'=>'Admin','prefix'=>'dashboard','middleware'=>'auth:api'],function (){
+
 });

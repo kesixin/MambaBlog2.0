@@ -1,6 +1,37 @@
 <template>
     <div class="footer-bar">
-        <h4>底部栏</h4>
+        <v-content class="main-content base_content" style="padding:0px !important">
+            <v-container grid-list-x1 class="text-md-center">
+                <v-layout row wrap>
+                    <div class="ui stackable inverted divided grid">
+                        <div class="four wide column">
+                            <h4 class="ui inverted header">友站</h4>
+                        </div>
+                        <div class="four wide column">
+                            <h4 class="ui inverted header">资源</h4>
+                            <div class="ui inverted link">
+                                <a href="https://laravel-china.org/" class="item" target="_blank">Laravel China 社区</a>
+                                <a href="https://laravel-china.org/docs/php-design-patterns/2018" class="item" target="_blank">PHP 设计模式全集</a>
+                                <a class="item" href="https://laravel-china.github.io/php-the-right-way/" target="_blank">PHP之道</a>
+                            </div>
+                        </div>
+                        <div class="eight wide column">
+                            <h4 class="ui inverted  header">cocoyo ` Blog</h4>
+                            <p>
+                                热爱生活、热爱代码,努力成为一个优秀程序员,并且是一个快乐的极客!
+                            </p>
+                            <p>
+                                <v-btn color="success" style="background-color: #F96854 !important" to="/contact"><Icon type="ios-lightbulb"></Icon>&nbsp;&nbsp;联系我</v-btn>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="width: 100%;padding: 25px 0 0 0;">
+                        <p class="web-description">&copy;2016-2018 <strong>cocoyo . All rights reserved. 粤ICP备17015096号</strong></p>
+                    </div>
+
+                </v-layout>
+            </v-container>
+        </v-content>
     </div>
 </template>
 
