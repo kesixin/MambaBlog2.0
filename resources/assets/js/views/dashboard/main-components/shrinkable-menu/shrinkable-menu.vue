@@ -1,0 +1,50 @@
+<template>
+    <div :style="{background:bgColor}" class="ivu-shrinkable-menu">
+        <slot name="top"></slot>
+        <sidebar-menu
+                v-show="!shrink"
+                :menu-theme="theme"
+                :menu-list="menuList"
+        ></sidebar-menu>
+    </div>
+</template>
+
+<script>
+    import sidebarMenu from './components/sidebarMenu.vue';
+    import util from '@/libs/util';
+
+    export default {
+        name:'shrinkableMenu',
+        components:{
+            sidebarMenu
+        },
+        computed: {
+            bgColor () {
+                return this.theme === 'dark' ? '#495060' : '#fff';
+            },
+            shrinkIconColor () {
+                return this.theme === 'dark' ? '#fff' : '#495060';
+            }
+        },
+        props:{
+            shrink:{
+                type:Boolean,
+                default:false
+            },
+            menuList: {
+                type: Array,
+                required: true
+            },
+            theme: {
+                type: String,
+                default: 'dark',
+                validator (val) {
+                    return util.oneOf(val, ['dark', 'light']);
+                }
+            },
+        }
+    }
+</script>
+
+<style lang="less">
+</style>
