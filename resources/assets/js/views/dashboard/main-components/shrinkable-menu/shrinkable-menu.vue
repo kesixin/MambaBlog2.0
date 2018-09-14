@@ -5,7 +5,10 @@
                 v-show="!shrink"
                 :menu-theme="theme"
                 :menu-list="menuList"
+                :open-names="openNames"
+                @on-change="handleChange"
         ></sidebar-menu>
+        <sidebar-menu-shrink v-show="shrink" :menu-theme="theme" :menu-list="menuList" :icon-color="shrinkIconColor" @on-change="handleChange"></sidebar-menu-shrink>
     </div>
 </template>
 
@@ -44,6 +47,22 @@
                     return util.oneOf(val, ['dark', 'light']);
                 }
             },
+        },
+        methods:{
+            handleChange(name){
+                let willpush = true;
+                if (this.beforePush !== undefined) {
+                    if (!this.beforePush(name)) {
+                        willpush = false;
+                    }
+                }
+                if (willpush) {
+                    this.$router.push({
+                        name: name
+                    });
+                }
+                this.$emit('on-change', name);
+            }
         }
     }
 </script>

@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import iView from 'iview';
 import {getToken} from '@/utils/auth';
-import {routers,otherRouter} from './router';
+import {routers,otherRouter,appRouter} from './router';
 import Util from '../../libs/util';
 
 Vue.use(VueRouter);
@@ -23,7 +23,7 @@ router.beforeEach((to,from,next)=>{
         window.location.href = '/#/login';
     }
 
-    Util.toDefaultPage([otherRouter],to.name,router,next);
+    Util.toDefaultPage([otherRouter,...appRouter],to.name,router,next);
 
 });
 

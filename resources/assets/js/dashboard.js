@@ -17,5 +17,24 @@ const app = new Vue({
     router:router,
     render: h=> h(App),
     store: store,
+    data:{
+        currentPageName:''
+    },
+    mounted(){
+        this.currentPageName = this.$route.name;
+        this.$store.commit('setOpenedList');
+        this.$store.commit('initCachepage');
+    },
+    created(){
+        let tagsList = [];
+        appRouter.map((item) => {
+            if (item.children.length <= 1) {
+                tagsList.push(item.children[0]);
+            } else {
+                tagsList.push(...item.children);
+            }
+        });
+        this.$store.commit('setTagsList', tagsList);
+    }
 
 });

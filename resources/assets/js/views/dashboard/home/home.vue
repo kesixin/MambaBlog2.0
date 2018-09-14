@@ -27,13 +27,56 @@
                     </Col>
                 </Row>
             </Col>
+
+            <Col :md="24" :lg="16">
+            <Row :gutter="5">
+                <Col :xs="24" :sm="12" :md="6" :style="{marginBottom: '10px'}">
+                <infor-card
+                        id-name="user_created_count"
+                        iconType="android-person-add"
+                        color="#2d8cf0"
+                        intro-text="今日新增用户数"
+                ></infor-card>
+                </Col>
+                <Col :xs="24" :sm="12" :md="6" :style="{marginBottom: '10px'}">
+                <infor-card
+                        id-name="visit_count"
+                        iconType="ios-book"
+                        color="#64d572"
+                        :iconSize="50"
+                        intro-text="今日新增文章数"
+                ></infor-card>
+                </Col>
+                <Col :xs="24" :sm="12" :md="6" :style="{marginBottom: '10px'}">
+                <infor-card
+                        id-name="collection_count"
+                        iconType="ios-eye"
+                        color="#ffd572"
+                        intro-text="今日文章流量量"
+                ></infor-card>
+                </Col>
+                <Col :xs="24" :sm="12" :md="6" :style="{marginBottom: '10px'}">
+                <infor-card
+                        id-name="transfer_count"
+                        iconType="chatboxes"
+                        color="#f25e43"
+                        intro-text="今日新增文章评论数"
+                ></infor-card>
+                </Col>
+            </Row>
+            </Col>
         </Row>
     </div>
 </template>
 
 <script>
-    export default{
+    import inforCard from './components/inforCard.vue';
 
+    export default{
+        name:"home",
+        components:{
+            inforCard
+        },
         computed:{
             name() {
                 console.log(this.$store.state.user.userinfo.name);
