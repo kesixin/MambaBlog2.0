@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tag-con">
+            <div class="tags-con">
                 <tags-page-opened :pageTagsList="pageTagsList"></tags-page-opened>
             </div>
         </div>
@@ -157,3 +157,7 @@
         }
     }
 </script>
+
+<style scoped>
+
+</style>
