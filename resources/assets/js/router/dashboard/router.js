@@ -7,6 +7,7 @@ export const otherRouter = {
     component:Main,
     children:[
         { path:'home',title:'主页',name:'home_index',component:resolve=>void(require(['@/views/dashboard/home/home.vue'],resolve)) },
+        { path:'users/:id/edit',title:'编辑用户',name:'users_edit',component:resolve=>void(require(['@/views/dashboard/users/edit.vue'],resolve))}
     ]
 };
 

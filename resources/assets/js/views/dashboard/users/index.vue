@@ -6,7 +6,7 @@
                     <Table :loading="loading" :data="tableData" :columns="tableColumns" stripe></Table>
                         <div style="margin:10px;overflow: hidden;">
                             <div style="float:right;">
-                                <Page :total="meta.total" :current="meta.current_page" @on-change="handleCurrentChange"></Page>
+                                <Page :total="meta.total" :current="meta.current_page"></Page>
                             </div>
                         </div>
                 </Card>
@@ -72,8 +72,42 @@
                         key:'created_at'
                     },
                     {
-                        title:'操作',
-                        key:'action'
+                        title: '操作',
+                        key: 'action',
+                        align: 'center',
+                        render: (h, params) => {
+                            return h('div', [
+                                h('router-link',{
+                                    props: {
+                                        to: '/users/' + params.row.id + '/edit'
+                                    },
+                                }, [
+                                    h('Button', {
+                                        props: {
+                                            type: 'success',
+                                            shape: 'circle',
+                                            icon: 'edit'
+                                        },
+                                        style: {
+                                            marginRight: '5px'
+                                        },
+                                    }),
+                                ]),
+
+                                h('Button', {
+                                    props: {
+                                        type: 'error',
+                                        shape: 'circle',
+                                        icon: 'android-delete'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.handleDelete(params)
+                                        }
+                                    }
+                                }),
+                            ])
+                        }
                     }
                 ]
             }

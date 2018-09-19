@@ -16,4 +16,12 @@ class UserController extends Controller
     {
         return UserResource::collection(User::latest()->paginate(10));
     }
+
+    /**
+     * @param User $user
+     * @return UserResource
+     */
+    public function edit(User $user){
+        return new UserResource($user);
+    }
 }
