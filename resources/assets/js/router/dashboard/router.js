@@ -29,7 +29,7 @@ export const appRouter = [
         title: '分类管理',
         component: Main,
         children: [
-            { path: 'index', title: '分类管理', name: 'categories_index', component: resolve => void(require(['@/views/dashboard/users/index.vue'], resolve)) },
+            { path: 'index', title: '分类管理', name: 'categories_index', component: resolve => void(require(['@/views/dashboard/categories/index.vue'], resolve)) },
         ]
     },
     {

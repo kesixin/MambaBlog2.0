@@ -35,4 +35,6 @@ Route::group(['namespace' =>'Auth'],function (){
 Route::group(['namespace'=>'Admin','prefix'=>'dashboard','middleware'=>'auth:api'],function (){
 
     Route::resource('users','UserController',['except'=>['create','show']]);
+
+    Route::post('users/{user}/avatar','UserController@avatar');
 });
