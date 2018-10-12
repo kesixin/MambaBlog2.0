@@ -24,7 +24,7 @@ class RegisterController extends Controller
         ]);
 
         //发送邮箱验证
-        $user->nofity(new UserRegisterVerficationCode($user));
+        $user->notify(new UserRegisterVerficationCode($user));
 
         return new UserResource($user);
     }

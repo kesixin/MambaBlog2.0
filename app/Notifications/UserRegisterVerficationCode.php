@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\Cache;
 use App\Models\User;
+use Mail;
 
 class UserRegisterVerficationCode extends Notification
 {
