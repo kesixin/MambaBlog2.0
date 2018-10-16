@@ -61,7 +61,23 @@ class UserController extends Controller
         $user->save();
 
         return $this->respond($resource);
+    }
 
+    /**
+     * @param User $user
+     * @param Request $request
+     * @return mixed|\Response
+     */
+    public function status(User $user,Request $request)
+    {
+        if($user->id == $request->user()->id){
+            return $this->failed('您无法为自己和其他管理员更改状态');
+        }
 
+        $user->status = ! $user->status;
+
+        $user->save();
+
+        return $this->noContent();
     }
 }

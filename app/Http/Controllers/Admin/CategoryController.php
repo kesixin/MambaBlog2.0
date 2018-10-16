@@ -33,4 +33,33 @@ class CategoryController extends Controller
 
         return $this->noContent();
     }
+
+    /**
+     * @param Category $category
+     * @return CategoryResource
+     */
+    public function edit(Category $category)
+    {
+        return new CategoryResource($category);
+    }
+
+
+    /**
+     * @param Category $category
+     * @param Request $request
+     * @return \Response
+     */
+    public function update(Category $category,Request $request)
+    {
+        $this->validate($request,[
+            'name'=>'required|min:1|max:15',
+            'description'=>'required'
+        ]);
+
+        $category->fill($request->all());
+
+        $category->save();
+
+        return $this->noContent();
+    }
 }

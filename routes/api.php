@@ -38,5 +38,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'dashboard','middleware'=>'auth:api
 
     Route::post('users/{user}/avatar','UserController@avatar');
 
+    Route::put('users/{user}/status','UserController@status');
+
     Route::resource('categories','CategoryController',['except'=>['create','show']]);
 });

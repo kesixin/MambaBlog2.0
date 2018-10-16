@@ -102,7 +102,7 @@
                                     },
                                     on: {
                                         click: () => {
-                                            this.handleDelete(params)
+                                            this.handleStatus(params)
                                         }
                                     }
                                 }),
@@ -140,6 +140,22 @@
                 console.log(val);
                 this.meta.current_page = val;
                 this.loadData();
+            },
+            handleStatus(data){
+                this.$Modal.confirm({
+                    title: '改变该用户的状态?',
+                    content: '该动作可能会影响一些数据，请三思!',
+                    okText: '是,改变它!',
+                    cancelText: '取消',
+                    loading: true,
+                    onOk:()=>{
+                        this.$http.put('users/'+data.row.id+'/status').then((response)=>{
+                            this.$Modal.remove();
+                            this.$Message.success('修改成功');
+                            this.tableData[data.index].status = ! data.row.status
+                        })
+                    }
+                })
             }
         }
     }
