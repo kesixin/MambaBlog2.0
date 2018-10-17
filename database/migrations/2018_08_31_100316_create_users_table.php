@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name')->unique()->comment('用户名');
             $table->string('nickname')->nullable()->comment('显示名称');
             $table->text('avatar')->nullable()->comment('头像');
-            $table->string('string')->unique()->comment('邮箱');
+            $table->string('email')->unique()->comment('邮箱');
             $table->tinyInteger('status')->default(false)->comment('状态');
             $table->boolean('is_admin')->default(false)->comment('是否管理员');
             $table->string('password')->comment('密码');

@@ -62,4 +62,14 @@ class CategoryController extends Controller
 
         return $this->noContent();
     }
+
+    public function destroy(Category $category)
+    {
+        if($category->article()->count()){
+            return $this->failed('该分类下有内容，您不能删除该分类');
+        }
+
+        $category->delete();
+        return $this->noContent();
+    }
 }

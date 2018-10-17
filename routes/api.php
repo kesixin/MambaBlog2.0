@@ -41,4 +41,6 @@ Route::group(['namespace'=>'Admin','prefix'=>'dashboard','middleware'=>'auth:api
     Route::put('users/{user}/status','UserController@status');
 
     Route::resource('categories','CategoryController',['except'=>['create','show']]);
+
+    Route::resource('tags','TagController',['except'=>['create','show']]);
 });
