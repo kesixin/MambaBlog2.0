@@ -4,8 +4,8 @@
             <Col sapn="24">
             <Card>
                 <p slot="title" style="height:100%;text-align: right">
-                    <router-link to="/categories/add">
-                        <Button type="primary" icon="android-add-circle">添加分类</Button>
+                    <router-link to="/tags/add">
+                        <Button type="primary" icon="android-add-circle">添加标签</Button>
                     </router-link>
                 </p>
                 <Table  :loading="loading" :data="tableData" :columns="tableColumns" stripe>
