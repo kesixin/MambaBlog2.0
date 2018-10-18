@@ -49,4 +49,12 @@ class Article extends Model
             ['is_draft',0]
         ]);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function tags()
+    {
+        return $this->morphedByMany(Tag::class,'taggable');
+    }
 }

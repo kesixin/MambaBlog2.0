@@ -48,7 +48,7 @@
                             this.$Notice.success({
                                 title:'编辑分类成功'
                             })
-                            this.$route.push('/categories');
+                            this.$router.push('/categories');
                         });
                     }else{
                         this.$Message.error('请完善表单信息!');

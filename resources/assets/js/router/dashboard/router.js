@@ -11,6 +11,7 @@ export const otherRouter = {
         { path:'categories/add',title:'添加分类',name:'categories_add',component:resolve=>void(require(['@/views/dashboard/categories/add.vue'],resolve))},
         { path:'categories/:id/edit',title:'编辑分类',name:'categories_edit',component:resolve=>void(require(['@/views/dashboard/categories/edit.vue'],resolve))},
         { path:'tags/add',title:'添加标签',name:'tags_add',component:resolve=>void(require(['@/views/dashboard/tags/add.vue'],resolve))},
+        { path:'tags/:id/edit',title:'编辑标签',name:'tags-edit',component:resolve=>void(require(['@/views/dashboard/tags/edit.vue'],resolve))}
     ]
 };
 

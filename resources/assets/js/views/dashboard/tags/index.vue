@@ -111,6 +111,22 @@
                     this.meta = response.meta;
                 })
             },
+            handleDelete(data){
+                this.$Modal.confirm({
+                    title:'删除该标签?',
+                    content:'该分类会永久删除，请三思!',
+                    okText:'是,删除!',
+                    cancelText:'取消',
+                    loading:true,
+                    onOk:()=>{
+                        this.$http.delete('tags/'+data.row.id).then((response)=>{
+                            this.$Modal.remove();
+                            this.loadData();
+                            this.$Message.success('删除成功');
+                        })
+                    }
+                })
+            }
         }
     }
 </script>
