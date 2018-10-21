@@ -13,9 +13,9 @@ class ArticleResource extends Resource
         return [
             'id'                => $this->id,
             'category_id'       => $this->category_id,
-            //'category'          => new CategoryResource($this->whenLoaded('category')),
+            'category'          => new CategoryResource($this->whenLoaded('category')),
             'user'              => new UserResource($this->whenLoaded('user')),
-            //'tags'              => TagResource::collection($this->whenLoaded('tags')),
+            'tags'              => TagResource::collection($this->whenLoaded('tags')),
             'comments_count'    => $this->comments_count,
             'slug'              => $this->slug,
             'title'             => $this->title,

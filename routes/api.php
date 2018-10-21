@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::post('upload/image','UploadController@uploadImage');
+
 Route::group(["namespace" => "Api"],function (){
     //文章列表
     Route::get('articles','ArticleController@index')->name('articles.index');
@@ -43,4 +45,12 @@ Route::group(['namespace'=>'Admin','prefix'=>'dashboard','middleware'=>'auth:api
     Route::resource('categories','CategoryController',['except'=>['create','show']]);
 
     Route::resource('tags','TagController',['except'=>['create','show']]);
+
+    Route::resource('articles','ArticleController',['except'=>['create','show']]);
+
+    Route::resource('links','LinkController',['except'=>['create','show']]);
+
+
+
+    Route::post('upload/image','UploadController@image');
 });

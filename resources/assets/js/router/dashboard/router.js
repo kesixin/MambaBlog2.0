@@ -11,7 +11,9 @@ export const otherRouter = {
         { path:'categories/add',title:'添加分类',name:'categories_add',component:resolve=>void(require(['@/views/dashboard/categories/add.vue'],resolve))},
         { path:'categories/:id/edit',title:'编辑分类',name:'categories_edit',component:resolve=>void(require(['@/views/dashboard/categories/edit.vue'],resolve))},
         { path:'tags/add',title:'添加标签',name:'tags_add',component:resolve=>void(require(['@/views/dashboard/tags/add.vue'],resolve))},
-        { path:'tags/:id/edit',title:'编辑标签',name:'tags-edit',component:resolve=>void(require(['@/views/dashboard/tags/edit.vue'],resolve))}
+        { path:'tags/:id/edit',title:'编辑标签',name:'tags-edit',component:resolve=>void(require(['@/views/dashboard/tags/edit.vue'],resolve))},
+        { path:'articles/add',title:'添加文章',name:'articles_add',component:resolve=>void(require(['@/views/dashboard/articles/add.vue'],resolve))},
+        { path:'links/add',title:'添加友链',name:'links_add',component:resolve=>void(require(['@/views/dashboard/links/add.vue'],resolve))}
     ]
 };
 
@@ -63,7 +65,7 @@ export const appRouter = [
         title: '文章管理',
         component: Main,
         children: [
-            { path: 'index', title: '文章管理', name: 'articles_index', component: resolve => void(require(['@/views/dashboard/users/index.vue'], resolve)) },
+            { path: 'index', title: '文章管理', name: 'articles_index', component: resolve => void(require(['@/views/dashboard/articles/index.vue'], resolve)) },
         ]
     },
     {
@@ -73,7 +75,7 @@ export const appRouter = [
         title: '友链管理',
         component: Main,
         children: [
-            { path: 'index', title: '友链管理', name: 'links_index', component: resolve => void(require(['@/views/dashboard/users/index.vue'], resolve)) },
+            { path: 'index', title: '友链管理', name: 'links_index', component: resolve => void(require(['@/views/dashboard/links/index.vue'], resolve)) },
         ]
     }
 ]

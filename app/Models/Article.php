@@ -55,6 +55,6 @@ class Article extends Model
      */
     public function tags()
     {
-        return $this->morphedByMany(Tag::class,'taggable');
+        return $this->morphToMany(Tag::class,'taggable');
     }
 }

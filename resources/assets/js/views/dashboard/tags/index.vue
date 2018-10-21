@@ -11,7 +11,7 @@
                 <Table  :loading="loading" :data="tableData" :columns="tableColumns" stripe>
                     <div style="margin: 10px;overflow: hidden">
                         <div style="float:right">
-                            <Page :total="meta.total" :current="meta.current_page"></Page>
+                            <Page :total="meta.total" :current="meta.current_page" @on-change="handleCurrentChange"></Page>
                         </div>
                     </div>
                 </Table>
@@ -110,6 +110,10 @@
                     this.tableData = response.data;
                     this.meta = response.meta;
                 })
+            },
+            handleCurrentChange(val){
+                this.meta.current_page = val;
+                this.loadData();
             },
             handleDelete(data){
                 this.$Modal.confirm({
