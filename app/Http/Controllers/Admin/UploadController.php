@@ -23,6 +23,10 @@ class UploadController extends Controller
         $this->manager = $manager;
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function image(Request $request)
     {
         $this->validate($request,[

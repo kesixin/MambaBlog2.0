@@ -48,12 +48,34 @@
             return {
                 form:{
                     image:''
+                },
+                ruleValidate:{
+                    name:[
+                        {required:true,message:'标签不能为空'}
+                    ],
+                    link:[
+                        {required:true,message:'标签描述不能为空'}
+                    ],
+                    image:[
+                        {required:true,message:'请上传logo'}
+                    ]
                 }
             }
         },
         methods:{
             onSubmit(name){
-
+                this.$refs[name].validate((valid)=>{
+                    if(valid){
+                        this.$http.post('link',this.form).then((response)=>{
+                            this.$Notice.success({
+                                title:'添加友联成功'
+                            })
+                            this.$router.push('/links')
+                        })
+                    }else{
+                        this.$Message.error('请完善表单信息')
+                    }
+                })
             },
             handleImageSuccess(response){
                 this.form.image = response.relative_url

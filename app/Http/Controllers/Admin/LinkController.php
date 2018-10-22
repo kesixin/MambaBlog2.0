@@ -21,6 +21,17 @@ class LinkController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'name'=>'required|min:1|max:255',
+            'link'=>'required|min:1|max:255',
+            'image'=>'required'
 
+        ]);
+
+        Link::create($request->all());
+
+        Cache::forget('cocoyo_links');
+
+        return $this->noContent();
     }
 }
