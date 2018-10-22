@@ -66,7 +66,7 @@
             onSubmit(name){
                 this.$refs[name].validate((valid)=>{
                     if(valid){
-                        this.$http.post('link',this.form).then((response)=>{
+                        this.$http.post('links',this.form).then((response)=>{
                             this.$Notice.success({
                                 title:'添加友联成功'
                             })

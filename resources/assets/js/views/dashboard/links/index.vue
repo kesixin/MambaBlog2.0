@@ -99,7 +99,7 @@
                                 }),
                                 h('router-link',{
                                     props:{
-                                        to:'/tags/'+ params.row.id +'/edit'
+                                        to:'/links/'+ params.row.id +'/edit'
                                     }
                                 },[
                                     h('Button',{
@@ -157,6 +157,22 @@
                     this.loading = false;
                     this.tableData = response.data;
                     this.meta = response.meta;
+                })
+            },
+            handleDelete(data){
+                this.$Modal.confirm({
+                    title:'删除该标签?',
+                    content:'该分类会永久删除，请三思!',
+                    okText:'是,删除!',
+                    cancelText:'取消',
+                    loading:true,
+                    onOk:()=>{
+                        this.$http.delete('links/'+data.row.id).then((response)=>{
+                            this.$Modal.remove();
+                            this.loadData();
+                            this.$Message.success('删除成功');
+                        });
+                    }
                 })
             }
         }
